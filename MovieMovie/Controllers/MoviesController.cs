@@ -11,6 +11,13 @@ namespace MovieMovie.Controllers
     [RoutePrefix("Movies")]
     public class MoviesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         [Route("Random")]
         public ActionResult Random() {
             var movie = new Movie() { Name = "Shrek!" };
@@ -26,26 +33,17 @@ namespace MovieMovie.Controllers
         [Route("Detail/{id}")]
         public ActionResult Detail(int id)
         {
-            if (id == 1)
-            {
-                return View(new Movie() { Id = 1, Name = "Your Name" });
-            } else if (id==2)
-            {
-                return View(new Movie() { Id = 2, Name = "Comeback Home" });
-            } else
-            {
+            var movie = _context.movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
                 return HttpNotFound();
-            }
+            return View(movie);
         }
 
         [Route("")]
         public ActionResult Index()
         {
-            var movies = new List<Movie>()
-            {
-                new Movie() {Id = 1, Name = "Your Name"},
-                new Movie() {Id = 2, Name="Comeback Home"}
-            };
+            var movies = _context.movies.ToList();
             var movieListView = new MoviesListModel()
             {
                 Movies = movies

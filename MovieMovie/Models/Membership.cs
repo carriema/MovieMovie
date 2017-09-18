@@ -7,7 +7,7 @@ namespace MovieMovie.Models
 {
     public class Membership
     {
-        public int MembershipId { get; set; }
+        public byte MembershipId { get; set; }
         public string MembershipType { get; set; }
         public int MembershipDiscount { get; set; }
         public short SignUpFee { get; set; }

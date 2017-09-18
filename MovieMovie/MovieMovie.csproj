@@ -43,6 +43,12 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -97,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +115,42 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Migrations\201709180406224_InitialModel.cs" />
+    <Compile Include="Migrations\201709180406224_InitialModel.Designer.cs">
+      <DependentUpon>201709180406224_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181348585_populateMembershipTypes.cs" />
+    <Compile Include="Migrations\201709181348585_populateMembershipTypes.Designer.cs">
+      <DependentUpon>201709181348585_populateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181637520_updatecustomer.cs" />
+    <Compile Include="Migrations\201709181637520_updatecustomer.Designer.cs">
+      <DependentUpon>201709181637520_updatecustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181643167_addBirthdayToCustomer.cs" />
+    <Compile Include="Migrations\201709181643167_addBirthdayToCustomer.Designer.cs">
+      <DependentUpon>201709181643167_addBirthdayToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181707597_ModifyCustomerListAndMovie.cs" />
+    <Compile Include="Migrations\201709181707597_ModifyCustomerListAndMovie.Designer.cs">
+      <DependentUpon>201709181707597_ModifyCustomerListAndMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181725123_changeCustomerContraints.cs" />
+    <Compile Include="Migrations\201709181725123_changeCustomerContraints.Designer.cs">
+      <DependentUpon>201709181725123_changeCustomerContraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181728108_changeCustomerContraints2.cs" />
+    <Compile Include="Migrations\201709181728108_changeCustomerContraints2.Designer.cs">
+      <DependentUpon>201709181728108_changeCustomerContraints2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709181756258_AddMovieColumn.cs" />
+    <Compile Include="Migrations\201709181756258_AddMovieColumn.Designer.cs">
+      <DependentUpon>201709181756258_AddMovieColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\IdentityModel.cs" />
+    <Compile Include="Models\Membership.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="ViewModels\CustomerListViewModel.cs" />
     <Compile Include="ViewModels\MoviesListModel.cs" />
@@ -141,6 +183,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Movies\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709180406224_InitialModel.resx">
+      <DependentUpon>201709180406224_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181348585_populateMembershipTypes.resx">
+      <DependentUpon>201709181348585_populateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181637520_updatecustomer.resx">
+      <DependentUpon>201709181637520_updatecustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181643167_addBirthdayToCustomer.resx">
+      <DependentUpon>201709181643167_addBirthdayToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181707597_ModifyCustomerListAndMovie.resx">
+      <DependentUpon>201709181707597_ModifyCustomerListAndMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181725123_changeCustomerContraints.resx">
+      <DependentUpon>201709181725123_changeCustomerContraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181728108_changeCustomerContraints2.resx">
+      <DependentUpon>201709181728108_changeCustomerContraints2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709181756258_AddMovieColumn.resx">
+      <DependentUpon>201709181756258_AddMovieColumn.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

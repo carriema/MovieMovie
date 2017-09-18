@@ -6,3 +6,12 @@
 
 <h2>@Model.Name</h2>
 
+<ul>
+    <li>Genre: @Model.Genre</li>
+    @if (Model.Releasedate.HasValue)
+    {
+        <li>Release Date: @Model.Releasedate.Value.ToShortDateString()</li>
+    }
+    <li>Update Date: @Model.UpdateTime.ToShortDateString()</li>
+</ul>
+

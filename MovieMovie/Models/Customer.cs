@@ -12,5 +12,6 @@ namespace MovieMovie.Models
         public bool IsSubscrib { get; set; }
         public byte MembershipId { get; set; }
         public Membership Membership { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }
